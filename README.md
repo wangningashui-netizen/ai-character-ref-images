@@ -42,4 +42,16 @@ Shisei 的服装图是 CC0（可以自由使用），使用时请注明来自 Sh
 
 每一张图在文件夹里的后半段路径，和原网站地址里的后半段相同。例如原来是 `https://ai-pose-gallery.pages.dev/thumbs/某图.jpg`，这里就是 `poses/thumbs/某图.jpg`。
 
-张数、占用空间、没下成功的地址，写在 `manifest.json`。
+张数、占用空间、没下成功的地址，写在 `manifest.json`。这次目录里的图全部下到了，没有失败。
+
+## 网站应该用哪个地址读图
+
+推荐用 GitHub 原始文件地址。抽查过姿势、深度图、服装、人像、历代服装，都能打开，而且允许网页跨域使用（浏览器可以直接拿去画进画布）：
+
+`https://raw.githubusercontent.com/wangningashui-netizen/ai-character-ref-images/main/`
+
+举例，姿势小图：
+
+`https://raw.githubusercontent.com/wangningashui-netizen/ai-character-ref-images/main/poses/thumbs/full_sexy_P001_front.jpg`
+
+jsDelivr（`cdn.jsdelivr.net`，后面跟 `@main`）也能打开一部分图，响应头同样允许跨域。但这个仓库大约 6.5 GB，超过它 50 MB 的限制，有的图会直接拒绝（提示 Package size exceeded）。所以不要把网站指到 `@main` 这个地址。固定到某一次提交的版本号时，抽查的图又能打开，但以后仓库一更新，版本号也得跟着改，不适合当长期地址。
